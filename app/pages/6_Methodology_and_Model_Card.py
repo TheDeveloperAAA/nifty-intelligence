@@ -9,7 +9,13 @@ import plotly.graph_objects as go
 import streamlit as st
 import yaml
 
-from app import loaders, ui
+try:
+    from app import loaders, ui
+except ModuleNotFoundError:  # Streamlit Cloud doesn't put the repo root on sys.path
+    import sys
+    from pathlib import Path as _P
+    sys.path.append(str(_P(__file__).resolve().parents[2]))
+    from app import loaders, ui
 
 st.set_page_config(page_title="Methodology & Model Card", page_icon="📋", layout="wide")
 st.title("Methodology & Model Card")
