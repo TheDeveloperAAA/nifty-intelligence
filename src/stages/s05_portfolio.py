@@ -48,7 +48,6 @@ def run(cfg, force: bool = False) -> bool:  # noqa: PLR0915 — orchestration sh
     sectors = px.groupby("symbol")["sector"].first()
     rets = px.pivot(index="date", columns="symbol", values="simple_ret").sort_index()
     closes = px.pivot(index="date", columns="symbol", values="close").sort_index()
-    log_rets = np.log1p(rets)
 
     px_sig = px[["date", "symbol", "ret"]].sort_values(["symbol", "date"]).reset_index(drop=True)
     px_sig["sigma"] = ewma_vol_panel(
