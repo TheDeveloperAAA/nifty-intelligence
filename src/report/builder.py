@@ -131,7 +131,7 @@ def build_report(art: Path, figs: dict[str, Path], fonts_dir: Path, out_pdf: Pat
     pdf.ln(2)
     pdf.set_font("DejaVu", "B", 10)
     pdf.set_text_color(*DARK)
-    pdf.multi_cell(W, 5, "Team The_Bull_Monster — Aditya Raj · Nitin")
+    pdf.multi_cell(W, 5, "Team The_Bull_Monster — Aditya Raj")
     pdf.ln(3)
     pdf.body(
         "We built a reproducible investment-intelligence platform from the official NIFTY-50 dataset "
