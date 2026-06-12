@@ -1,0 +1,161 @@
+{
+  "1": {
+    "F1": {
+      "empirical_coverage": 0.9116234390009607,
+      "n_calib": 10620,
+      "q": 1.712290220609011,
+      "source": "inner_validation"
+    },
+    "F2": {
+      "empirical_coverage": 0.8937676456955038,
+      "n_calib": 21861,
+      "q": 1.6407876994140544,
+      "source": "prior_folds<F2"
+    },
+    "F3": {
+      "empirical_coverage": 0.8982850625280052,
+      "n_calib": 45592,
+      "q": 1.658012067794776,
+      "source": "prior_folds<F3"
+    },
+    "F4": {
+      "empirical_coverage": 0.9005724240915879,
+      "n_calib": 70141,
+      "q": 1.6612735235145764,
+      "source": "prior_folds<F4"
+    },
+    "F5": {
+      "empirical_coverage": 0.9005153576582148,
+      "n_calib": 94249,
+      "q": 1.6603223179465971,
+      "source": "prior_folds<F5"
+    },
+    "F6": {
+      "empirical_coverage": 0.8994139407290411,
+      "n_calib": 118504,
+      "q": 1.6595951098913257,
+      "source": "prior_folds<F6"
+    },
+    "TEST": {
+      "empirical_coverage": 0.8901288612121586,
+      "n_calib": 142563,
+      "q": 1.6603223179465971,
+      "source": "prior_folds<TEST"
+    },
+    "ablation_unscaled": {
+      "covid_coverage": 0.6675890695261155,
+      "q": 0.03343520039489489,
+      "test_coverage": 0.846106418398175
+    },
+    "covid_slice_scaled": {
+      "coverage": 0.8173642338291248,
+      "n": 2891
+    }
+  },
+  "5": {
+    "F1": {
+      "empirical_coverage": 0.9009651891496272,
+      "n_calib": 10616,
+      "q": 1.761014914627897,
+      "source": "inner_validation"
+    },
+    "F2": {
+      "empirical_coverage": 0.9019426067169525,
+      "n_calib": 21861,
+      "q": 1.7552447305880068,
+      "source": "prior_folds<F2"
+    },
+    "F3": {
+      "empirical_coverage": 0.906187624750499,
+      "n_calib": 45592,
+      "q": 1.7488634373944232,
+      "source": "prior_folds<F3"
+    },
+    "F4": {
+      "empirical_coverage": 0.9010287041645927,
+      "n_calib": 70141,
+      "q": 1.7353835253609364,
+      "source": "prior_folds<F4"
+    },
+    "F5": {
+      "empirical_coverage": 0.9050505050505051,
+      "n_calib": 94249,
+      "q": 1.7341157199111628,
+      "source": "prior_folds<F5"
+    },
+    "F6": {
+      "empirical_coverage": 0.9042354212560788,
+      "n_calib": 118504,
+      "q": 1.7278919943747348,
+      "source": "prior_folds<F6"
+    },
+    "TEST": {
+      "empirical_coverage": 0.8930911814266991,
+      "n_calib": 142563,
+      "q": 1.7233899284724914,
+      "source": "prior_folds<TEST"
+    },
+    "ablation_unscaled": {
+      "covid_coverage": 0.6451054998270495,
+      "q": 0.07549558221079514,
+      "test_coverage": 0.8406041315608812
+    },
+    "covid_slice_scaled": {
+      "coverage": 0.7928052576962988,
+      "n": 2891
+    }
+  },
+  "21": {
+    "F1": {
+      "empirical_coverage": 0.8857783267005169,
+      "n_calib": 10600,
+      "q": 1.7836352677120981,
+      "source": "inner_validation"
+    },
+    "F2": {
+      "empirical_coverage": 0.9305128313176857,
+      "n_calib": 21861,
+      "q": 1.8804060855883653,
+      "source": "prior_folds<F2"
+    },
+    "F3": {
+      "empirical_coverage": 0.9055358670414273,
+      "n_calib": 45592,
+      "q": 1.7730467925693716,
+      "source": "prior_folds<F3"
+    },
+    "F4": {
+      "empirical_coverage": 0.9044715447154471,
+      "n_calib": 70141,
+      "q": 1.7609420222180239,
+      "source": "prior_folds<F4"
+    },
+    "F5": {
+      "empirical_coverage": 0.9181199752628324,
+      "n_calib": 94249,
+      "q": 1.7536484715160976,
+      "source": "prior_folds<F5"
+    },
+    "F6": {
+      "empirical_coverage": 0.9041522922814748,
+      "n_calib": 118504,
+      "q": 1.7286684828506755,
+      "source": "prior_folds<F6"
+    },
+    "TEST": {
+      "empirical_coverage": 0.8483496292407638,
+      "n_calib": 142563,
+      "q": 1.7246421898882327,
+      "source": "prior_folds<TEST"
+    },
+    "ablation_unscaled": {
+      "covid_coverage": 0.5299204427533726,
+      "q": 0.1513791809392576,
+      "test_coverage": 0.8051709429752608
+    },
+    "covid_slice_scaled": {
+      "coverage": 0.6437218955378762,
+      "n": 2891
+    }
+  }
+}

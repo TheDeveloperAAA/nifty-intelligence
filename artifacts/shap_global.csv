@@ -1,0 +1,127 @@
+horizon,feature,label,mean_abs_shap
+1,ret_1d,1-day return,3.7442605429758923e-05
+1,ret_5d,5-day return,0.00013195927932020682
+1,ret_21d,1-month return,2.6353773451646263e-05
+1,ret_63d,3-month return,3.480889553663528e-05
+1,mom_12_1,12-1 momentum,1.772629459540239e-05
+1,c_sma10,price vs 10d average,0.0001033802042388162
+1,c_sma50,price vs 50d average,1.5619300230290042e-05
+1,sma10_sma50,trend crossover,1.4015003715527247e-05
+1,rsi_14,RSI-14,1.3390413211186503e-05
+1,macd_norm,MACD,1.0487832529932083e-05
+1,macd_hist_norm,MACD histogram,6.114602879478283e-05
+1,boll_pctb,Bollinger %B,1.0215375115657298e-05
+1,boll_bw,Bollinger width,4.555761424479041e-06
+1,atr_norm,ATR,1.916576132444672e-05
+1,rv_21,1-month volatility,1.2228294818587555e-06
+1,rv_63,3-month volatility,2.5440836926176996e-05
+1,rv_ratio,vol regime shift,4.875804937299357e-06
+1,parkinson_21,range volatility,4.744770983136809e-05
+1,range_norm,day range,2.4936898736705625e-05
+1,overnight_gap,overnight gap,0.00018911913613718737
+1,vol_surprise,volume surprise,7.566761169574682e-06
+1,vol_trend,volume trend,1.0309068294621263e-05
+1,pct_deliv,delivery %,5.790153456868594e-06
+1,deliv_dev,delivery shift,1.900487925351142e-05
+1,amihud,illiquidity,0.00015464328895775154
+1,c_vwap,close vs VWAP,4.8748375651191165e-05
+1,dow,day of week,0.0002758210262564673
+1,month,month,0.00013908566581332564
+1,is_month_end,month-end,0.0004039508795281854
+1,cs_rank_ret1,1-day rank,9.173471509913292e-06
+1,cs_rank_ret21,momentum rank,5.36719116045959e-05
+1,cs_rank_rv21,volatility rank,1.8422772416740979e-06
+1,cs_rank_volsurp,volume rank,0.0
+1,mkt_ret_1d,market return,0.0009728184952505601
+1,mkt_rv21,market volatility,0.0002482091190635309
+1,beta_252,beta,1.0805519133563791e-05
+1,rel_sector_21,vs sector,0.0001800309688346261
+1,sector_ret_21,sector momentum,0.0002843585324425894
+1,regime,volatility regime,8.711133054119045e-06
+1,drawdown_252,drawdown,5.621701422427847e-05
+1,symbol_cat,stock identity,0.00018441137304036446
+1,sector_cat,sector identity,1.1895958802225273e-05
+5,ret_1d,1-day return,0.0
+5,ret_5d,5-day return,0.000797016498258474
+5,ret_21d,1-month return,6.635270409337508e-05
+5,ret_63d,3-month return,0.0006659305434118033
+5,mom_12_1,12-1 momentum,0.00029083154499641873
+5,c_sma10,price vs 10d average,0.00023854823410403539
+5,c_sma50,price vs 50d average,0.00014582991082445735
+5,sma10_sma50,trend crossover,0.00011953160328690328
+5,rsi_14,RSI-14,8.44749289507279e-05
+5,macd_norm,MACD,4.2932728857100625e-05
+5,macd_hist_norm,MACD histogram,0.00021207291971896247
+5,boll_pctb,Bollinger %B,7.257048348494416e-05
+5,boll_bw,Bollinger width,0.0001735597185962978
+5,atr_norm,ATR,0.00010548170774389249
+5,rv_21,1-month volatility,7.486141584962066e-05
+5,rv_63,3-month volatility,0.00017768655198444538
+5,rv_ratio,vol regime shift,4.160389187042139e-05
+5,parkinson_21,range volatility,0.00025017467865918547
+5,range_norm,day range,0.0001719192880289998
+5,overnight_gap,overnight gap,0.0002302354246054064
+5,vol_surprise,volume surprise,1.0181839876584857e-05
+5,vol_trend,volume trend,2.64912378384292e-05
+5,pct_deliv,delivery %,0.000120512835352904
+5,deliv_dev,delivery shift,0.00014276028306475018
+5,amihud,illiquidity,0.0013040250373715194
+5,c_vwap,close vs VWAP,0.0002067808173496623
+5,dow,day of week,9.724352080663701e-05
+5,month,month,0.0010993459289058921
+5,is_month_end,month-end,0.0010371507464757262
+5,cs_rank_ret1,1-day rank,0.00030056951846097027
+5,cs_rank_ret21,momentum rank,7.062950226803964e-05
+5,cs_rank_rv21,volatility rank,7.509661123013546e-06
+5,cs_rank_volsurp,volume rank,2.2342871859651643e-06
+5,mkt_ret_1d,market return,0.0009400719216715942
+5,mkt_rv21,market volatility,0.001088575192390546
+5,beta_252,beta,0.00014183757563869756
+5,rel_sector_21,vs sector,0.0009112858272071343
+5,sector_ret_21,sector momentum,0.0010274662181303574
+5,regime,volatility regime,0.00015727719860521432
+5,drawdown_252,drawdown,0.00019465180458893365
+5,symbol_cat,stock identity,0.0010940883070694565
+5,sector_cat,sector identity,5.523394385605971e-05
+21,ret_1d,1-day return,0.0
+21,ret_5d,5-day return,0.0
+21,ret_21d,1-month return,2.8251036508929937e-05
+21,ret_63d,3-month return,0.002219111645409606
+21,mom_12_1,12-1 momentum,0.0020167543166566193
+21,c_sma10,price vs 10d average,6.759476945597253e-05
+21,c_sma50,price vs 50d average,0.0007439564851337019
+21,sma10_sma50,trend crossover,0.0008196898933713033
+21,rsi_14,RSI-14,4.026795620473832e-05
+21,macd_norm,MACD,4.838604791406933e-05
+21,macd_hist_norm,MACD histogram,0.0002395195586954846
+21,boll_pctb,Bollinger %B,6.0876362877083455e-05
+21,boll_bw,Bollinger width,0.00010774896897727571
+21,atr_norm,ATR,0.00013191572602958742
+21,rv_21,1-month volatility,0.00029238484199408787
+21,rv_63,3-month volatility,0.0013186035306926895
+21,rv_ratio,vol regime shift,0.0011944086099104376
+21,parkinson_21,range volatility,0.0004222934776901442
+21,range_norm,day range,0.0
+21,overnight_gap,overnight gap,0.0
+21,vol_surprise,volume surprise,0.0
+21,vol_trend,volume trend,9.042064495909639e-05
+21,pct_deliv,delivery %,0.0002985994290364078
+21,deliv_dev,delivery shift,6.644397872740624e-05
+21,amihud,illiquidity,0.006063706221847952
+21,c_vwap,close vs VWAP,8.629624545387987e-05
+21,dow,day of week,0.0
+21,month,month,0.004053559713019202
+21,is_month_end,month-end,0.0
+21,cs_rank_ret1,1-day rank,0.00017649490629247016
+21,cs_rank_ret21,momentum rank,0.00010113896805319421
+21,cs_rank_rv21,volatility rank,6.861419845641262e-05
+21,cs_rank_volsurp,volume rank,0.0
+21,mkt_ret_1d,market return,0.0005098868572990709
+21,mkt_rv21,market volatility,0.004977077113927503
+21,beta_252,beta,0.0008274842933266167
+21,rel_sector_21,vs sector,0.0020739125538138366
+21,sector_ret_21,sector momentum,0.00030225296961792933
+21,regime,volatility regime,0.0019869769011380436
+21,drawdown_252,drawdown,0.0007351897901483416
+21,symbol_cat,stock identity,0.004292278880446124
+21,sector_cat,sector identity,0.0002432783972488964

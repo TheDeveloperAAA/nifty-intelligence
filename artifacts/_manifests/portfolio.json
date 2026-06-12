@@ -1,0 +1,26 @@
+{
+  "config_hash": "756f2d1dfc282d8d",
+  "input_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/predictions.parquet": "14dc0b646c5430d28801d3a91ef63ee21e9efc491c894bf717c93fdaa9326f9f",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/prices_adjusted.parquet": "d04ce2256fbc555dc949654591ee58d98ad30278ba8320f124716317f7ea6ef9",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/regimes.parquet": "5db19c654f67f41cfc7c3f6dca3e2c856fff3f8f8d82264d3a84f33a9ead6703"
+  },
+  "n_rebalances": 172,
+  "output_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/backtest_curves.parquet": "b2640ec8c64470539c7e808fe07a29db38afca16a35b375b92e02d6a0cbc7acc",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/frontier.json": "30bdffc697c52bfeff1077158b252cb706ccf17f866dbdb7f7980a7f2820b3d5",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/portfolio_summary.json": "5c57d5ae336c3405957fbdceb45379c271136ae434db0015c2b6a23c676d9063",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/rebalance_log.parquet": "121a283b2c2b1b1f03ca7ed938c8c24bb102f47d2aece32a1c1160d612feb7ed",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/weights_history.parquet": "0a0b4475a2baf755c7ce654542c075b874cf830e566d64c800290f53f965b15f"
+  },
+  "recorded_at": "2026-06-12 19:28:51",
+  "stage": "portfolio",
+  "strategies": [
+    "conservative",
+    "balanced",
+    "aggressive",
+    "benchmark_ew",
+    "hrp"
+  ],
+  "wall_time_s": 39.79
+}

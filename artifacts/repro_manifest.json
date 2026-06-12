@@ -1,0 +1,10 @@
+{
+  "artifacts/anomaly_validation.json": "f788d72ed2ecac5231d9fa721debd42733b1806e861e7e44af0382db50e599af",
+  "artifacts/conformal.json": "5c14d5350b99751177db53a21c1a229b28ab050dea9f125cb85a4a8741e1821d",
+  "artifacts/data_quality.json": "c94fc261b40050a1c617d4f08bdef7158a2862aa0626bb15a39b143761896b73",
+  "artifacts/garch_params.json": "9cd98428f8cb5384f3cd6896e643489de51ce42651b96ca5402b4b40628293dc",
+  "artifacts/model_metrics.json": "7b493f4519ce39e79e1e751e8c77fb268ad6c6388da759ed17650c0f6064c9d7",
+  "artifacts/portfolio_summary.json": "5c57d5ae336c3405957fbdceb45379c271136ae434db0015c2b6a23c676d9063",
+  "artifacts/risk_metrics.json": "557b69a276b29e652ada2e4633cc1a5e5f5934528ae1562ae9fae6a8bdb63b39",
+  "artifacts/var_backtest.json": "b9964e91ba43123d0a994c03989cb26b9570600bc4dad424eb3675fdfbdd1ae7"
+}

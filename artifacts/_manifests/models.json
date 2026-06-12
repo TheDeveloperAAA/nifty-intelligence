@@ -1,0 +1,16 @@
+{
+  "config_hash": "6c19344ea7f50f58",
+  "input_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/heavy/features_full.parquet": "ba54c33fdd6b72060e339056eb36c66f7d98e7c6f2f170ff25cd7f431ed68268",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/prices_adjusted.parquet": "d04ce2256fbc555dc949654591ee58d98ad30278ba8320f124716317f7ea6ef9"
+  },
+  "n_predictions": 475170,
+  "output_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/conformal.json": "5c14d5350b99751177db53a21c1a229b28ab050dea9f125cb85a4a8741e1821d",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/model_metrics.json": "7b493f4519ce39e79e1e751e8c77fb268ad6c6388da759ed17650c0f6064c9d7",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/predictions.parquet": "14dc0b646c5430d28801d3a91ef63ee21e9efc491c894bf717c93fdaa9326f9f"
+  },
+  "recorded_at": "2026-06-12 19:28:10",
+  "stage": "models",
+  "wall_time_s": 141.22
+}

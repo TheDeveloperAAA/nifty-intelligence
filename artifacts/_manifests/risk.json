@@ -1,0 +1,19 @@
+{
+  "config_hash": "12d0c72d1cdb9101",
+  "input_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/backtest_curves.parquet": "b2640ec8c64470539c7e808fe07a29db38afca16a35b375b92e02d6a0cbc7acc",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/market_proxy.parquet": "c2572ab31222939f48be1d2a91714aafaa57993835ebeb0972f14067d6ff0360",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/prices_adjusted.parquet": "d04ce2256fbc555dc949654591ee58d98ad30278ba8320f124716317f7ea6ef9"
+  },
+  "output_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/correlation.parquet": "314b0623a577e03e294d84a4cd338d1107d15d6b71a4caf0f47d09a689d43b67",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/drawdowns.parquet": "d2460d0702ea8dd00f2cf25b923b1351f98c30c7b1c4d2a590e410b72d69becb",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/risk_metrics.json": "557b69a276b29e652ada2e4633cc1a5e5f5934528ae1562ae9fae6a8bdb63b39",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/risk_stock.parquet": "329e6674606fd8b61d399631f9bf74091e161c3a2c0f86273f6116180379a581",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/rolling_risk.parquet": "1b198b94edb9f83ed46a3dadac85504cd647e8e510049c7eb6819a6cd97ba15b",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/var_backtest.json": "b9964e91ba43123d0a994c03989cb26b9570600bc4dad424eb3675fdfbdd1ae7"
+  },
+  "recorded_at": "2026-06-12 19:28:53",
+  "stage": "risk",
+  "wall_time_s": 1.71
+}

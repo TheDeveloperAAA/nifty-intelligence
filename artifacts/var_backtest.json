@@ -1,0 +1,42 @@
+{
+  "aggressive": {
+    "exception_rate": 0.050970873786407765,
+    "exceptions": 168,
+    "expected_exceptions": 164.80000000000015,
+    "lr": 0.06500903409765968,
+    "n": 3296,
+    "p_value": 0.7987472800915947
+  },
+  "balanced": {
+    "exception_rate": 0.05430825242718446,
+    "exceptions": 179,
+    "expected_exceptions": 164.80000000000015,
+    "lr": 1.2543360393318608,
+    "n": 3296,
+    "p_value": 0.2627259303324521
+  },
+  "benchmark_ew": {
+    "exception_rate": 0.05521844660194175,
+    "exceptions": 182,
+    "expected_exceptions": 164.80000000000015,
+    "lr": 1.8304161591948187,
+    "n": 3296,
+    "p_value": 0.17607839874644454
+  },
+  "conservative": {
+    "exception_rate": 0.053094660194174755,
+    "exceptions": 175,
+    "expected_exceptions": 164.80000000000015,
+    "lr": 0.6519377728665781,
+    "n": 3296,
+    "p_value": 0.4194207260476467
+  },
+  "hrp": {
+    "exception_rate": 0.054004854368932036,
+    "exceptions": 178,
+    "expected_exceptions": 164.80000000000015,
+    "lr": 1.0858568405257145,
+    "n": 3296,
+    "p_value": 0.2973910256252916
+  }
+}

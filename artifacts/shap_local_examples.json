@@ -1,0 +1,170 @@
+{
+  "1": {
+    "base_value": 0.0006963828478493313,
+    "contributions": [
+      {
+        "feature": "mkt_rv21",
+        "label": "market volatility",
+        "shap": -0.007430847685354423,
+        "value": 0.6869656443595886
+      },
+      {
+        "feature": "macd_hist_norm",
+        "label": "MACD histogram",
+        "shap": 0.0032544545014896744,
+        "value": -0.029268864542245865
+      },
+      {
+        "feature": "overnight_gap",
+        "label": "overnight gap",
+        "shap": -0.0015731331829851062,
+        "value": -0.09995579719543457
+      },
+      {
+        "feature": "dow",
+        "label": "day of week",
+        "shap": 0.0014009796370015141,
+        "value": 0.0
+      },
+      {
+        "feature": "c_sma10",
+        "label": "price vs 10d average",
+        "shap": 0.0013255574779562993,
+        "value": -0.13733547925949097
+      },
+      {
+        "feature": "ret_5d",
+        "label": "5-day return",
+        "shap": 0.001268604708148882,
+        "value": -0.13881969451904297
+      },
+      {
+        "feature": "mkt_ret_1d",
+        "label": "market return",
+        "shap": -0.0011914666015142461,
+        "value": -0.1385353058576584
+      },
+      {
+        "feature": "is_month_end",
+        "label": "month-end",
+        "shap": -0.0005983635008359828,
+        "value": 0.0
+      }
+    ],
+    "date": "2020-03-23",
+    "prediction": -0.0017363693113290708,
+    "symbol": "RELIANCE"
+  },
+  "21": {
+    "base_value": 0.015091850043023696,
+    "contributions": [
+      {
+        "feature": "month",
+        "label": "month",
+        "shap": 0.024791630133104304,
+        "value": 3.0
+      },
+      {
+        "feature": "drawdown_252",
+        "label": "drawdown",
+        "shap": 0.01368326842823905,
+        "value": -0.45088356733322144
+      },
+      {
+        "feature": "c_sma50",
+        "label": "price vs 50d average",
+        "shap": 0.009780811020959365,
+        "value": -0.3524904251098633
+      },
+      {
+        "feature": "mkt_rv21",
+        "label": "market volatility",
+        "shap": 0.006118131645824047,
+        "value": 0.6869656443595886
+      },
+      {
+        "feature": "amihud",
+        "label": "illiquidity",
+        "shap": -0.004870870960330517,
+        "value": -38.48004150390625
+      },
+      {
+        "feature": "mom_12_1",
+        "label": "12-1 momentum",
+        "shap": -0.0024956504081610842,
+        "value": 0.1098928451538086
+      },
+      {
+        "feature": "rv_ratio",
+        "label": "vol regime shift",
+        "shap": -0.0018035393815388635,
+        "value": 1.5487529039382935
+      },
+      {
+        "feature": "rel_sector_21",
+        "label": "vs sector",
+        "shap": 0.0017707333525654979,
+        "value": -0.11724545806646347
+      }
+    ],
+    "date": "2020-03-23",
+    "prediction": 0.05815344158521284,
+    "symbol": "RELIANCE"
+  },
+  "5": {
+    "base_value": 0.0035700462483346375,
+    "contributions": [
+      {
+        "feature": "mkt_ret_1d",
+        "label": "market return",
+        "shap": 0.011816991898578738,
+        "value": -0.1385353058576584
+      },
+      {
+        "feature": "mkt_rv21",
+        "label": "market volatility",
+        "shap": -0.009687147748868205,
+        "value": 0.6869656443595886
+      },
+      {
+        "feature": "c_sma10",
+        "label": "price vs 10d average",
+        "shap": 0.008756118707805982,
+        "value": -0.13733547925949097
+      },
+      {
+        "feature": "macd_hist_norm",
+        "label": "MACD histogram",
+        "shap": 0.007286928758799636,
+        "value": -0.029268864542245865
+      },
+      {
+        "feature": "sector_ret_21",
+        "label": "sector momentum",
+        "shap": 0.007225531016421367,
+        "value": -0.41399165987968445
+      },
+      {
+        "feature": "ret_5d",
+        "label": "5-day return",
+        "shap": 0.004805987808852939,
+        "value": -0.13881969451904297
+      },
+      {
+        "feature": "ret_63d",
+        "label": "3-month return",
+        "shap": 0.0034388956934316333,
+        "value": -0.5752086639404297
+      },
+      {
+        "feature": "boll_pctb",
+        "label": "Bollinger %B",
+        "shap": 0.0031978773756538253,
+        "value": 0.08280971646308899
+      }
+    ],
+    "date": "2020-03-23",
+    "prediction": 0.0521041566089794,
+    "symbol": "RELIANCE"
+  }
+}

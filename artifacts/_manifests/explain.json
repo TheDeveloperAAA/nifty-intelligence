@@ -1,0 +1,18 @@
+{
+  "config_hash": "6db0432a75d05034",
+  "input_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/heavy/features_full.parquet": "ba54c33fdd6b72060e339056eb36c66f7d98e7c6f2f170ff25cd7f431ed68268",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/models/lgbm_reg_h1.txt": "a49ee00d3cc8d226842e857f73aedea6a2648671f6b1e1808c3563201af56ccd",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/models/lgbm_reg_h21.txt": "0dd0afae85cb1ca6ceab47bc4b341d4337d1458d73a255b3fe6b5289097643ff",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/models/lgbm_reg_h5.txt": "71c679e26bb32b595218fb8b22ba5efa24e4fb3b1f6251849414a80a1a08c4e6"
+  },
+  "output_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/shap_global.csv": "2850f70973621944020f5d6e87d5df0d9bcc4358175d4317b865d4130984b7ab",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/shap_latest.parquet": "52e290dd4aab5352ff3d3108d35b2f0cc9007ce26885bc626fe77086e1e52f70",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/shap_local_examples.json": "ead907cf116bf3e9c6539e39feadafc41609960f08a4a0cee91a7b542f5fe63a",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/shap_sample.parquet": "f038d63ba75e0e09490e5d6acbcdf1bb288f3f7c8191fbabb3c54299b3728189"
+  },
+  "recorded_at": "2026-06-12 19:28:56",
+  "stage": "explain",
+  "wall_time_s": 2.04
+}

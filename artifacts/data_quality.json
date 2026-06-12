@@ -1,0 +1,36 @@
+{
+  "date_max": "2021-04-30",
+  "date_min": "2000-01-03",
+  "events_by_kind": {
+    "exchange_prevclose": 2,
+    "split_bonus_large": 87,
+    "split_bonus_moderate": 5
+  },
+  "events_total": 94,
+  "gate_pass": true,
+  "max_abs_ret_post_adjustment": 0.36930641310809076,
+  "missing_deliv_rows": 16077,
+  "missing_trades_rows": 114848,
+  "n_days_abs_ret_gt20pct": 93,
+  "n_rows": 235192,
+  "n_symbols": 49,
+  "residual_down_days": [],
+  "residual_down_gt30pct": 0,
+  "up_gt30pct_days": [
+    {
+      "date": "2004-05-18",
+      "ret": "0.277690805088211",
+      "symbol": "GAIL"
+    },
+    {
+      "date": "2008-10-31",
+      "ret": "0.2905090831417856",
+      "symbol": "JSWSTEEL"
+    },
+    {
+      "date": "2020-03-26",
+      "ret": "0.36930641310809076",
+      "symbol": "INDUSINDBK"
+    }
+  ]
+}

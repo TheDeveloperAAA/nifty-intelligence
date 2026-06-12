@@ -1,0 +1,15 @@
+{
+  "config_hash": "cf3f30a6be751bdb",
+  "input_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/market_proxy.parquet": "c2572ab31222939f48be1d2a91714aafaa57993835ebeb0972f14067d6ff0360",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/prices_adjusted.parquet": "d04ce2256fbc555dc949654591ee58d98ad30278ba8320f124716317f7ea6ef9"
+  },
+  "n_events": 5187,
+  "output_hashes": {
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/anomalies.parquet": "7d075aebb9026b57e8bbc29772aee583de9884f93dda1d8eb545a312ceb77f36",
+    "/Users/rajbadshah/Desktop/Brave_Download/Cult_NIFTY50/nifty-intelligence/artifacts/anomaly_validation.json": "f788d72ed2ecac5231d9fa721debd42733b1806e861e7e44af0382db50e599af"
+  },
+  "recorded_at": "2026-06-12 19:28:54",
+  "stage": "anomaly",
+  "wall_time_s": 0.51
+}

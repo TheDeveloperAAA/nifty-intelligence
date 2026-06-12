@@ -1,0 +1,180 @@
+{
+  "market_ew": {
+    "ann_vol": 0.21426586790400903,
+    "cagr": 0.23314412112025829,
+    "calmar": 0.41349805125949896,
+    "cvar_95": 0.03260032571891665,
+    "cvar_99": 0.05405561259180876,
+    "max_drawdown": 0.5638336635689343,
+    "n_days": 5305,
+    "sharpe": 0.8080807401290192,
+    "sortino": 1.1294823381214263,
+    "var_95": 0.01984011396870441,
+    "var_99": 0.03963857729117302
+  },
+  "notes": "rf=6% documented assumption; per-stock metrics on full history (survivorship caveat applies, see model card)",
+  "stocks_lowest_vol": [
+    {
+      "ann_vol": 0.24226090925567964,
+      "cagr": 0.18374249784631447,
+      "max_drawdown": 0.32401037216186523,
+      "sector": "CONSUMER GOODS",
+      "sharpe": 0.5107819426027083,
+      "symbol": "NESTLEIND"
+    },
+    {
+      "ann_vol": 0.26980348991824393,
+      "cagr": 0.19297377370149027,
+      "max_drawdown": 0.48547452688217163,
+      "sector": "CONSUMER GOODS",
+      "sharpe": 0.49285416486563643,
+      "symbol": "BRITANNIA"
+    },
+    {
+      "ann_vol": 0.2723134775505298,
+      "cagr": 0.27490738781787494,
+      "max_drawdown": 0.44935357570648193,
+      "sector": "CONSUMER GOODS",
+      "sharpe": 0.789191154807963,
+      "symbol": "ASIANPAINT"
+    },
+    {
+      "ann_vol": 0.2971186438856285,
+      "cagr": 0.060497013521394694,
+      "max_drawdown": 0.6411998271942139,
+      "sector": "ENERGY",
+      "sharpe": 0.0016727779680699335,
+      "symbol": "POWERGRID"
+    },
+    {
+      "ann_vol": 0.29826238593805643,
+      "cagr": -0.08768051764353513,
+      "max_drawdown": 0.7506768107414246,
+      "sector": "METALS",
+      "sharpe": -0.4951362444817485,
+      "symbol": "COALINDIA"
+    },
+    {
+      "ann_vol": 0.29962809928356304,
+      "cagr": 0.1166353694367992,
+      "max_drawdown": 0.6620769500732422,
+      "sector": "CONSUMER GOODS",
+      "sharpe": 0.1890188856526451,
+      "symbol": "HINDUNILVR"
+    },
+    {
+      "ann_vol": 0.2996406067908192,
+      "cagr": 0.0304769942665728,
+      "max_drawdown": 0.6779201030731201,
+      "sector": "ENERGY",
+      "sharpe": -0.09852805348921674,
+      "symbol": "NTPC"
+    },
+    {
+      "ann_vol": 0.30754461216235984,
+      "cagr": 0.22135018219477542,
+      "max_drawdown": 0.5226122140884399,
+      "sector": "AUTOMOBILE",
+      "sharpe": 0.5246399247911225,
+      "symbol": "BAJAJ-AUTO"
+    },
+    {
+      "ann_vol": 0.30869988595906656,
+      "cagr": 0.1253327543736764,
+      "max_drawdown": 0.5700725317001343,
+      "sector": "CONSUMER GOODS",
+      "sharpe": 0.21163841434764735,
+      "symbol": "ITC"
+    },
+    {
+      "ann_vol": 0.30876393149267634,
+      "cagr": 0.2153084251859283,
+      "max_drawdown": 0.6635882258415222,
+      "sector": "IT",
+      "sharpe": 0.5030005429556208,
+      "symbol": "TCS"
+    }
+  ],
+  "stocks_top_sharpe": [
+    {
+      "ann_vol": 0.2723134775505298,
+      "cagr": 0.27490738781787494,
+      "max_drawdown": 0.44935357570648193,
+      "sector": "CONSUMER GOODS",
+      "sharpe": 0.789191154807963,
+      "symbol": "ASIANPAINT"
+    },
+    {
+      "ann_vol": 0.3896648834803495,
+      "cagr": 0.358959524963701,
+      "max_drawdown": 0.7997341156005859,
+      "sector": "CEMENT & CEMENT PRODUCTS",
+      "sharpe": 0.767222137888074,
+      "symbol": "SHREECEM"
+    },
+    {
+      "ann_vol": 0.44478798128729774,
+      "cagr": 0.39938790160093984,
+      "max_drawdown": 0.9180201292037964,
+      "sector": "FINANCIAL SERVICES",
+      "sharpe": 0.7630329862301791,
+      "symbol": "BAJFINANCE"
+    },
+    {
+      "ann_vol": 0.43836332129527217,
+      "cagr": 0.3432328981103665,
+      "max_drawdown": 0.732021152973175,
+      "sector": "AUTOMOBILE",
+      "sharpe": 0.6461144998935412,
+      "symbol": "EICHERMOT"
+    },
+    {
+      "ann_vol": 0.4443317381739097,
+      "cagr": 0.34538368406291275,
+      "max_drawdown": 0.8450689315795898,
+      "sector": "FINANCIAL SERVICES",
+      "sharpe": 0.6422761633813668,
+      "symbol": "KOTAKBANK"
+    },
+    {
+      "ann_vol": 0.320313742170811,
+      "cagr": 0.23361534092168723,
+      "max_drawdown": 0.5535650253295898,
+      "sector": "FINANCIAL SERVICES",
+      "sharpe": 0.5420165233782098,
+      "symbol": "HDFCBANK"
+    },
+    {
+      "ann_vol": 0.40093958813599795,
+      "cagr": 0.274172215701999,
+      "max_drawdown": 0.8678944110870361,
+      "sector": "FINANCIAL SERVICES",
+      "sharpe": 0.5341757762003592,
+      "symbol": "BAJAJFINSV"
+    },
+    {
+      "ann_vol": 0.30754461216235984,
+      "cagr": 0.22135018219477542,
+      "max_drawdown": 0.5226122140884399,
+      "sector": "AUTOMOBILE",
+      "sharpe": 0.5246399247911225,
+      "symbol": "BAJAJ-AUTO"
+    },
+    {
+      "ann_vol": 0.24226090925567964,
+      "cagr": 0.18374249784631447,
+      "max_drawdown": 0.32401037216186523,
+      "sector": "CONSUMER GOODS",
+      "sharpe": 0.5107819426027083,
+      "symbol": "NESTLEIND"
+    },
+    {
+      "ann_vol": 0.30876393149267634,
+      "cagr": 0.2153084251859283,
+      "max_drawdown": 0.6635882258415222,
+      "sector": "IT",
+      "sharpe": 0.5030005429556208,
+      "symbol": "TCS"
+    }
+  ]
+}
