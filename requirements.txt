@@ -1,0 +1,16 @@
+numpy==2.2.6
+pandas==2.3.3
+pyarrow==24.0.0
+scipy==1.16.3
+scikit-learn==1.8.0
+lightgbm==4.6.0
+statsmodels==0.14.6
+arch==8.0.0
+shap==0.51.0
+matplotlib==3.10.8
+seaborn==0.13.2
+plotly==6.8.0
+streamlit==1.58.0
+fpdf2==2.8.7
+PyYAML==6.0.3
+joblib==1.5.3

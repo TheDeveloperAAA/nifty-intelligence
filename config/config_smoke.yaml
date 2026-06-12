@@ -1,0 +1,134 @@
+# Smoke configuration: 6 symbols, short history, tiny models.
+# Used by tests/CI to exercise the full pipeline end-to-end in < 90 s.
+
+run:
+  seed: 42
+  num_threads: 2
+  float_dtype: float32
+
+paths:
+  raw: data/raw
+  artifacts: artifacts/_smoke
+  heavy: artifacts/_smoke/heavy
+  reports: artifacts/_smoke/reports
+  models: artifacts/_smoke/models
+
+data:
+  start: "2015-01-01"
+  end: "2021-04-30"
+  symbols: [RELIANCE, INFY, TCS, HDFCBANK, SBIN, ITC]
+  rename_map:
+    MUNDRAPORT: ADANIPORTS
+    UTIBANK: AXISBANK
+    BAJAUTOFIN: BAJFINANCE
+    BHARTI: BHARTIARTL
+    HEROHONDA: HEROMOTOCO
+    HINDALC0: HINDALCO
+    HINDLEVER: HINDUNILVR
+    INFOSYSTCH: INFY
+    JSWSTL: JSWSTEEL
+    KOTAKMAH: KOTAKBANK
+    TELCO: TATAMOTORS
+    TISCO: TATASTEEL
+    UNIPHOS: UPL
+    SESAGOA: VEDL
+    SSLT: VEDL
+    ZEETELE: ZEEL
+  drop_symbols: [INFRATEL]
+  adjust:
+    large_drop_ratio: 0.70
+    large_snap_tol: 0.06
+    moderate_band: [0.70, 0.90]
+    moderate_snap_tol: 0.025
+    moderate_open_tol: 0.025
+    moderate_range_max: 0.08
+    moderate_market_max: 0.04
+    prevclose_mismatch_tol: 0.02
+
+features:
+  warmup_days: 252
+  sma_windows: [10, 50]
+  vol_windows: [21, 63]
+  rsi_window: 14
+  macd: [12, 26, 9]
+  bollinger_window: 20
+  bollinger_k: 2.0
+  atr_window: 14
+  beta_window: 252
+  beta_min_periods: 126
+  amihud_window: 21
+
+labels:
+  horizons: [1, 5, 21]
+  winsor_pct: [0.005, 0.995]
+
+cv:
+  feature_start: "2016-01-04"
+  folds:
+    - {name: F1, train_end: "2018-12-31", val_start: "2019-01-01", val_end: "2019-12-31"}
+  test: {name: TEST, train_end: "2019-12-31", val_start: "2020-01-01", val_end: "2021-04-30"}
+  embargo_days: 5
+
+model:
+  lgbm:
+    learning_rate: 0.05
+    num_leaves: 15
+    min_child_samples: 50
+    feature_fraction: 0.7
+    bagging_fraction: 0.8
+    bagging_freq: 1
+    lambda_l1: 0.1
+    lambda_l2: 5.0
+    cat_smooth: 20
+    n_estimators: 60
+    early_stopping_rounds: 20
+    inner_val_months: 6
+  ridge_alpha: 10.0
+  stability_seeds: [42]
+
+conformal:
+  alpha: 0.10
+
+volatility:
+  ewma_lambda: 0.94
+  ewma_init_days: 63
+  garch_showcase: [RELIANCE]
+
+portfolio:
+  rebalance: monthly
+  lookback_cov_days: 252
+  lookback_mu_days: 252
+  min_history_days: 252
+  min_traded_frac: 0.95
+  cost_bps_per_side: 10
+  backtest_start: "2017-01-01"
+  profiles:
+    conservative: {objective: min_vol,    max_weight: 0.35, sector_cap: 0.70}
+    balanced:     {objective: max_sharpe, max_weight: 0.40, sector_cap: 0.80}
+    aggressive:   {objective: score_tilt, max_weight: 0.40, sector_cap: 0.80, top_n: 4}
+  regime_overlay: {balanced: 0.7, aggressive: 0.5}
+  frontier_points: 10
+
+risk:
+  rf_annual: 0.06
+  rf_sensitivity: [0.04, 0.07]
+  var_levels: [0.95, 0.99]
+  trading_days: 252
+  rolling_window: 252
+
+regimes:
+  vol_window: 21
+  min_history_days: 252
+  refresh: monthly
+
+anomaly:
+  ret_z_window: 252
+  ret_z_threshold: 5.0
+  vol_z_window: 63
+  vol_z_threshold: 4.0
+  drawdown_21d_threshold: -0.25
+  market_z_threshold: 4.0
+
+explain:
+  shap_sample_rows: 2000
+  top_features_local: 8

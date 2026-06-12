@@ -1,0 +1,141 @@
+# nifty-intelligence — single source of truth.
+# Every constant the pipeline uses lives here; no magic numbers in code.
+
+run:
+  seed: 42
+  num_threads: 4
+  float_dtype: float32
+
+paths:
+  raw: data/raw
+  artifacts: artifacts
+  heavy: artifacts/heavy
+  reports: reports
+  models: artifacts/models
+
+data:
+  start: "2000-01-03"
+  end: "2021-04-30"
+  # historical ticker -> current ticker (verified against NSE rename history)
+  rename_map:
+    MUNDRAPORT: ADANIPORTS
+    UTIBANK: AXISBANK
+    BAJAUTOFIN: BAJFINANCE
+    BHARTI: BHARTIARTL
+    HEROHONDA: HEROMOTOCO
+    HINDALC0: HINDALCO
+    HINDLEVER: HINDUNILVR
+    INFOSYSTCH: INFY
+    JSWSTL: JSWSTEEL
+    KOTAKMAH: KOTAKBANK
+    TELCO: TATAMOTORS
+    TISCO: TATASTEEL
+    UNIPHOS: UPL
+    SESAGOA: VEDL
+    SSLT: VEDL
+    ZEETELE: ZEEL
+  drop_symbols: [INFRATEL]
+  # corporate-action detector (see src/core/adjustments.py for semantics)
+  adjust:
+    large_drop_ratio: 0.70       # rho < this => corporate action candidate (pass 1)
+    large_snap_tol: 0.06         # max |log(rho/c)| to accept a candidate factor
+    moderate_band: [0.70, 0.90]  # pass-2 band for small bonuses (e.g. 1:3 -> 0.75)
+    moderate_snap_tol: 0.025
+    moderate_open_tol: 0.025
+    moderate_range_max: 0.08     # (high-low)/open must be calm on a true ex-date
+    moderate_market_max: 0.04    # not a market-stress day
+    prevclose_mismatch_tol: 0.02 # PrevClose vs lagged Close => exchange-published factor
+
+features:
+  warmup_days: 252
+  sma_windows: [10, 50]
+  vol_windows: [21, 63]
+  rsi_window: 14
+  macd: [12, 26, 9]
+  bollinger_window: 20
+  bollinger_k: 2.0
+  atr_window: 14
+  beta_window: 252
+  beta_min_periods: 126
+  amihud_window: 21
+
+labels:
+  horizons: [1, 5, 21]
+  winsor_pct: [0.005, 0.995]   # applied to TRAIN targets only
+
+cv:
+  # expanding walk-forward; validation windows are two calendar years each
+  feature_start: "2001-07-02"  # after 252d warmup + indicator burn-in
+  folds:
+    - {name: F1, train_end: "2007-12-31", val_start: "2008-01-01", val_end: "2009-12-31"}
+    - {name: F2, train_end: "2009-12-31", val_start: "2010-01-01", val_end: "2011-12-31"}
+    - {name: F3, train_end: "2011-12-31", val_start: "2012-01-01", val_end: "2013-12-31"}
+    - {name: F4, train_end: "2013-12-31", val_start: "2014-01-01", val_end: "2015-12-31"}
+    - {name: F5, train_end: "2015-12-31", val_start: "2016-01-01", val_end: "2017-12-31"}
+    - {name: F6, train_end: "2017-12-31", val_start: "2018-01-01", val_end: "2019-12-31"}
+  test: {name: TEST, train_end: "2019-12-31", val_start: "2020-01-01", val_end: "2021-04-30"}
+  embargo_days: 5              # extra gap beyond the horizon-length purge
+
+model:
+  lgbm:
+    learning_rate: 0.03
+    num_leaves: 31
+    min_child_samples: 200
+    feature_fraction: 0.7
+    bagging_fraction: 0.8
+    bagging_freq: 1
+    lambda_l1: 0.1
+    lambda_l2: 5.0
+    cat_smooth: 20
+    n_estimators: 3000
+    early_stopping_rounds: 150
+    inner_val_months: 12       # tail of train reserved for early stopping (purged)
+  ridge_alpha: 10.0
+  stability_seeds: [42, 43, 44]
+
+conformal:
+  alpha: 0.10
+
+volatility:
+  ewma_lambda: 0.94
+  ewma_init_days: 63
+  garch_showcase: [RELIANCE, INFY, TCS, HDFCBANK, SBIN]
+
+portfolio:
+  rebalance: monthly
+  lookback_cov_days: 504
+  lookback_mu_days: 756
+  min_history_days: 504
+  min_traded_frac: 0.95
+  cost_bps_per_side: 10
+  backtest_start: "2007-01-01"
+  profiles:
+    conservative: {objective: min_vol,    max_weight: 0.10, sector_cap: 0.25}
+    balanced:     {objective: max_sharpe, max_weight: 0.15, sector_cap: 0.30}
+    aggressive:   {objective: score_tilt, max_weight: 0.15, sector_cap: 0.30, top_n: 15}
+  regime_overlay: {balanced: 0.7, aggressive: 0.5}   # risky-weight scale in Turbulent
+  frontier_points: 20
+
+risk:
+  rf_annual: 0.06
+  rf_sensitivity: [0.04, 0.07]
+  var_levels: [0.95, 0.99]
+  trading_days: 252
+  rolling_window: 252
+
+regimes:
+  vol_window: 21
+  min_history_days: 756
+  refresh: monthly             # expanding terciles refreshed monthly
+
+anomaly:
+  ret_z_window: 252
+  ret_z_threshold: 5.0
+  vol_z_window: 63
+  vol_z_threshold: 4.0
+  drawdown_21d_threshold: -0.25
+  market_z_threshold: 4.0
+
+explain:
+  shap_sample_rows: 20000
+  top_features_local: 8

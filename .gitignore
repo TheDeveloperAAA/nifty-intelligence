@@ -1,0 +1,16 @@
+# environments
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+
+# heavy regenerable artifacts (rebuilt by `make features`)
+artifacts/heavy/
+
+# streamlit
+.streamlit/secrets.toml
+
+# local scratch
+notebooks/scratch/

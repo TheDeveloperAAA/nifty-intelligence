@@ -1,0 +1,6 @@
+*.csv -text
+*.parquet binary
+*.txt text
+*.png binary
+*.pdf binary
+*.ttf binary
