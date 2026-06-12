@@ -199,7 +199,8 @@ def run(cfg, force: bool = False) -> bool:  # noqa: PLR0915 — orchestration sh
     window = rets.loc[:tp, uni].tail(pcfg["lookback_cov_days"]).dropna(axis=1, how="any")
     cov = opt.lw_covariance(window)
     mu = opt.shrunk_mu(rets.loc[:tp, window.columns].tail(pcfg["lookback_mu_days"]))
-    frontier = opt.efficient_frontier(mu, cov, pcfg["frontier_points"], 0.15)
+    frontier_cap = max(0.15, 2.0 / len(cov))  # keep sum(w)=1 feasible in small universes
+    frontier = opt.efficient_frontier(mu, cov, pcfg["frontier_points"], frontier_cap)
     points = {}
     for name in list(PROFILES) + ["benchmark_ew", "hrp"]:
         wdf = weights_df[(weights_df["profile"] == name) & (weights_df["date"] == final_date)]

@@ -44,22 +44,24 @@ def run(cfg, force: bool = False) -> bool:
         events[events["type"] == "market_wide"]
         .nlargest(20, "severity")["date"].dt.strftime("%Y-%m-%d").tolist()
     )
-    recovered = [d for d in KNOWN_EVENTS if any(abs(
+    start = pd.Timestamp(cfg["data"]["start"])
+    end = pd.Timestamp(cfg["data"]["end"])
+    in_window = [d for d in KNOWN_EVENTS if start <= pd.Timestamp(d) <= end]
+    recovered = [d for d in in_window if any(abs(
         (pd.Timestamp(d) - pd.Timestamp(m)).days) <= 5 for m in mkt_days)]
+    # gate on the anchor crises that the configured window actually covers
+    anchors = [d for d in ("2008-10-24", "2020-03-23") if d in in_window]
     validation = {
         "n_events_total": int(len(events)),
         "by_type": events["type"].value_counts().to_dict(),
         "top20_market_days": mkt_days,
         "known_events_recovered": recovered,
-        "known_events_expected": list(KNOWN_EVENTS),
-        "gate_pass": bool(
-            any(d.startswith("2008") for d in recovered)
-            and any(d.startswith("2020-03") for d in recovered)
-        ),
+        "known_events_expected": in_window,
+        "gate_pass": bool(all(a in recovered for a in anchors)),
     }
     write_json(validation, outputs[1])
     if not validation["gate_pass"]:
-        raise RuntimeError("anomaly gate FAILED: 2008/2020 crises not recovered")
+        raise RuntimeError(f"anomaly gate FAILED: anchor crises {anchors} not recovered")
     cache.record(chash, inputs, outputs, time.time() - t0,
                  extra={"n_events": int(len(events))})
     return False

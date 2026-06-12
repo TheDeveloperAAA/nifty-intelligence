@@ -8,6 +8,7 @@ __pycache__/
 
 # heavy regenerable artifacts (rebuilt by `make features`)
 artifacts/heavy/
+artifacts/_smoke/
 
 # streamlit
 .streamlit/secrets.toml

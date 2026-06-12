@@ -33,8 +33,8 @@ def run(cfg, force: bool = False) -> bool:
     px = px.sort_values(["symbol", "date"]).reset_index(drop=True)
     lam = cfg["volatility"]["ewma_lambda"]
     init = cfg["volatility"]["ewma_init_days"]
-    px["sigma_ewma"] = ewma_vol_panel(px, lam, init)
-    px["sigma_ann"] = px["sigma_ewma"] * np.sqrt(cfg["risk"]["trading_days"])
+    px["sigma_ewma"] = ewma_vol_panel(px, lam, init).astype(np.float32)
+    px["sigma_ann"] = (px["sigma_ewma"] * np.sqrt(cfg["risk"]["trading_days"])).astype(np.float32)
     write_parquet(px[["date", "symbol", "sigma_ewma", "sigma_ann"]], outputs[0])
 
     # ---- GARCH(1,1)-t showcase: params from train only, filtered through test

@@ -153,22 +153,23 @@ def make_all(art: Path, out: Path, cfg) -> dict[str, Path]:
             bbox=dict(facecolor="white", alpha=0.8, edgecolor=GRAY))
     paths["prediction_fan"] = _save(fig, out, "fig05_prediction_fan.png")
 
-    # 6 -- bias-variance: learning + complexity curves ----------------------------
-    fig, axes = plt.subplots(1, 2, figsize=(7.4, 2.5))
-    lc = pd.DataFrame(metrics["learning_curve"])
-    axes[0].plot(lc["n_train"] / 1000, lc["train_mae"], "o-", color=BLUE, label="train MAE", ms=3)
-    axes[0].plot(lc["n_train"] / 1000, lc["val_mae"], "o-", color=ORANGE, label="validation MAE", ms=3)
-    axes[0].set_xlabel("training rows (thousands)")
-    axes[0].set_title("Learning curve (F3, h=5)")
-    axes[0].legend(fontsize=7)
-    cc = pd.DataFrame(metrics["complexity_curve"])
-    axes[1].plot(cc["num_leaves"], cc["train_mae"], "o-", color=BLUE, label="train MAE", ms=3)
-    axes[1].plot(cc["num_leaves"], cc["val_mae"], "o-", color=ORANGE, label="validation MAE", ms=3)
-    axes[1].set_xscale("log", base=2)
-    axes[1].set_xlabel("num_leaves (model capacity)")
-    axes[1].set_title("Complexity curve (F3, h=5)")
-    axes[1].legend(fontsize=7)
-    paths["bias_variance"] = _save(fig, out, "fig06_bias_variance.png")
+    # 6 -- bias-variance: learning + complexity curves (skipped in smoke runs) ----
+    if metrics["learning_curve"] and metrics["complexity_curve"]:
+        fig, axes = plt.subplots(1, 2, figsize=(7.4, 2.5))
+        lc = pd.DataFrame(metrics["learning_curve"])
+        axes[0].plot(lc["n_train"] / 1000, lc["train_mae"], "o-", color=BLUE, label="train MAE", ms=3)
+        axes[0].plot(lc["n_train"] / 1000, lc["val_mae"], "o-", color=ORANGE, label="validation MAE", ms=3)
+        axes[0].set_xlabel("training rows (thousands)")
+        axes[0].set_title("Learning curve (F3, h=5)")
+        axes[0].legend(fontsize=7)
+        cc = pd.DataFrame(metrics["complexity_curve"])
+        axes[1].plot(cc["num_leaves"], cc["train_mae"], "o-", color=BLUE, label="train MAE", ms=3)
+        axes[1].plot(cc["num_leaves"], cc["val_mae"], "o-", color=ORANGE, label="validation MAE", ms=3)
+        axes[1].set_xscale("log", base=2)
+        axes[1].set_xlabel("num_leaves (model capacity)")
+        axes[1].set_title("Complexity curve (F3, h=5)")
+        axes[1].legend(fontsize=7)
+        paths["bias_variance"] = _save(fig, out, "fig06_bias_variance.png")
 
     # 7 -- reliability + coverage ---------------------------------------------------
     fig, axes = plt.subplots(1, 2, figsize=(7.4, 2.7))
@@ -218,8 +219,10 @@ def make_all(art: Path, out: Path, cfg) -> dict[str, Path]:
     fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.0))
     fr = pd.DataFrame(frontier["frontier"])
     stocks = pd.DataFrame(frontier["stocks"])
-    axes[0].scatter(stocks["vol"] * 100, stocks["ret"] * 100, s=6, color=GRAY, alpha=0.6)
-    axes[0].plot(fr["vol"] * 100, fr["ret"] * 100, color=BLUE, lw=1.4, label="efficient frontier")
+    if len(stocks):
+        axes[0].scatter(stocks["vol"] * 100, stocks["ret"] * 100, s=6, color=GRAY, alpha=0.6)
+    if len(fr):
+        axes[0].plot(fr["vol"] * 100, fr["ret"] * 100, color=BLUE, lw=1.4, label="efficient frontier")
     for name, pt in frontier["portfolios"].items():
         axes[0].scatter(pt["vol"] * 100, pt["ret"] * 100, marker="*", s=90,
                         color=PROFILE_COLORS.get(name, "k"), zorder=5)

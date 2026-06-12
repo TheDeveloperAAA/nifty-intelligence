@@ -481,6 +481,9 @@ def run(cfg, force: bool = False) -> bool:
             }
 
     preds["date"] = pd.to_datetime(preds["date"])
+    for c in preds.columns:
+        if preds[c].dtype == np.float64:
+            preds[c] = preds[c].astype(np.float32)
     write_parquet(preds, outputs[0])
     write_json(metrics, outputs[1])
     write_json(conformal_meta, outputs[2])

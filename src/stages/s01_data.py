@@ -121,6 +121,9 @@ def run(cfg, force: bool = False) -> bool:
         "gate_pass": bool(len(resid_down) == 0),
     }
 
+    for c in out.columns:
+        if out[c].dtype == np.float64:
+            out[c] = out[c].astype(np.float32)
     write_parquet(out, outputs[0])
     write_parquet(proxy, outputs[1])
     outputs[2].parent.mkdir(parents=True, exist_ok=True)

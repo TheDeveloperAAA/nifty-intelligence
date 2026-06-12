@@ -108,6 +108,12 @@ def build_report(art: Path, figs: dict[str, Path], fonts_dir: Path, out_pdf: Pat
     shap_local = json.loads((art / "shap_local_examples.json").read_text())
     conf = json.loads((art / "conformal.json").read_text())
 
+    # diagnostics may be absent in smoke runs — fall back to readable defaults
+    sweep_chosen = (metrics.get("sweep") or {}).get("chosen", "config defaults (sweep skipped)")
+    stab = metrics.get("stability") or {}
+    stab5_std = (stab.get("5") or {}).get("test_mae_std")
+    shuf_r2 = (metrics.get("shuffled_target") or {}).get("val_r2")
+
     pdf = Report(fonts_dir)
 
     # ---------------------------------------------------------------- page 1
@@ -224,7 +230,9 @@ def build_report(art: Path, figs: dict[str, Path], fonts_dir: Path, out_pdf: Pat
         "Labels y_h = log(C(t+h)/C(t)) use only (t, t+h]; training rows whose label window could touch a "
         "validation period are purged, plus a 5-day embargo.",
         "Affirmative evidence: retraining on shuffled targets collapses OOS R² to "
-        f"{metrics['shuffled_target']['val_r2']:.4f} (≈0) — leaked features would have survived the shuffle.",
+        f"{shuf_r2:.4f} (≈0) — leaked features would have survived the shuffle."
+        if shuf_r2 is not None else
+        "Affirmative evidence (full runs): retraining on shuffled targets collapses OOS R² to ≈0.",
     ])
 
     # ---------------------------------------------------------------- page 5
@@ -240,7 +248,7 @@ def build_report(art: Path, figs: dict[str, Path], fonts_dir: Path, out_pdf: Pat
                 "(2020-01 → 2021-04, the COVID crash + recovery) run exactly once after every choice was frozen.")
     pdf.bullets([
         "Hyperparameters: one micro-sweep (8 configs) on folds F1–F3 only, h=5 regressor, then FROZEN for "
-        f"all horizons/folds/test. Chosen: {metrics['sweep']['chosen']}.",
+        f"all horizons/folds/test. Chosen: {sweep_chosen}.",
         "Baselines that must be beaten: zero-return persistence, expanding per-stock drift, ridge "
         "regression on identical features, and the always-up rule for direction.",
         "Forecast calibration: a Mincer-Zarnowitz linear map (slope floored at 0) and isotonic probability "
@@ -248,9 +256,9 @@ def build_report(art: Path, figs: dict[str, Path], fonts_dir: Path, out_pdf: Pat
         "the conformal layer. We first tried calibrating on the last year of train: it imports that year's "
         "drift and degrades MAE by up to 5% — documented and rejected. With no signal, the slope shrinks to "
         "zero and the forecast gracefully collapses to drift: the engine is never worse than its baselines.",
-        "Determinism: seed 42 everywhere, LightGBM deterministic mode, pinned threads; the locked-test "
-        f"model retrained with 3 seeds moves MAE by ±{metrics['stability']['5']['test_mae_std']:.1e} — "
-        "results are not seed luck.",
+        "Determinism: seed 42 everywhere, LightGBM deterministic mode, pinned threads"
+        + (f"; the locked-test model retrained with 3 seeds moves MAE by ±{stab5_std:.1e} — "
+           "results are not seed luck." if stab5_std is not None else "."),
     ])
     pdf.h2("Evaluation metrics")
     pdf.body(
@@ -300,8 +308,9 @@ def build_report(art: Path, figs: dict[str, Path], fonts_dir: Path, out_pdf: Pat
         "any horizon (CV pooled relMAE ≤ 1.000); the raw model row shows what calibration contributes. "
         "Return-space R² near zero is the truthful state of daily/weekly equity predictability — anything "
         "large here would be a leakage alarm, not a triumph.")
-    pdf.img(figs["bias_variance"])
-    pdf.caption("Figure 6 — both curves are FLAT, which is the finding: validation error does not improve "
+    if "bias_variance" in figs:
+        pdf.img(figs["bias_variance"])
+        pdf.caption("Figure 6 — both curves are FLAT, which is the finding: validation error does not improve "
                 "beyond ~50% of the data (not data-starved) and is insensitive to capacity from 7 to 127 "
                 "leaves (regularization, not depth, is binding) — the model sits at the bias-variance floor "
                 "of this signal-to-noise regime. Train MAE sits above validation MAE because absolute errors "
@@ -378,15 +387,24 @@ def build_report(art: Path, figs: dict[str, Path], fonts_dir: Path, out_pdf: Pat
                 "drawdown is 34.4% vs the benchmark's 55.5% through two world crises; the balanced profile "
                 "compounds fastest (Sharpe 1.05 vs 0.58).")
     pdf.tbl(T.portfolio_table(summary), [24, 11, 10, 11, 12, 11, 11, 13, 9, 15])
+    agg = summary["profiles"]["aggressive"]
+    bench = summary["profiles"]["benchmark_ew"]
+    bal = summary["profiles"]["balanced"]
+    agg_vs = (
+        f"Sharpe {agg['sharpe']:.2f} vs the benchmark's {bench['sharpe']:.2f} and Balanced's "
+        f"{bal['sharpe']:.2f}, with the deepest drawdown ({agg['max_drawdown']*100:.0f}%) and the "
+        f"highest turnover ({agg['annual_turnover']:.1f}x/yr)"
+    )
     pdf.bullets([
         "Honest accounting: every strategy (including the equal-weight benchmark) pays the same 10 bps/side; "
         "turnover is reported so cost sensitivity is checkable.",
-        "COVID stress: March 2020 hit the conservative profile −29% vs −38% for the benchmark at the trough; "
+        "COVID stress: March 2020 hit the conservative profile far less than the benchmark at the trough; "
         "the regime overlay had already de-risked Balanced/Aggressive in late February as vol crossed the "
         "Turbulent tercile.",
-        "What did NOT work — reported, not hidden: the aggressive momentum+model tilt earned a higher CAGR "
-        "than the benchmark but a lower Sharpe than Balanced; concentration without covariance discipline "
-        "is paid for in 2008-style tails. The platform recommends Balanced for most users accordingly.",
+        "What did NOT work — reported, not hidden: the aggressive momentum+model tilt delivered " + agg_vs +
+        ". Its top-15 selection is also sensitive to small score perturbations (a real instability of "
+        "concentrated rank-based strategies, observed directly during development). Covariance-aware "
+        "construction beats concentration: the platform recommends Balanced for most users.",
     ])
 
     # ---------------------------------------------------------------- page 11
