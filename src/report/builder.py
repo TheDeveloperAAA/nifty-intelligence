@@ -128,7 +128,11 @@ def build_report(art: Path, figs: dict[str, Path], fonts_dir: Path, out_pdf: Pat
     pdf.multi_cell(W, 5, "Technical Report — Cult Open Projects 2026\n"
                           "Stock Predictor Engine · Portfolio Construction · Risk Assessment · "
                           "Explainable AI · Anomaly Detection · Interactive Dashboard")
-    pdf.ln(4)
+    pdf.ln(2)
+    pdf.set_font("DejaVu", "B", 10)
+    pdf.set_text_color(*DARK)
+    pdf.multi_cell(W, 5, "Team The_Bull_Monster — Aditya Raj · Nitin")
+    pdf.ln(3)
     pdf.body(
         "We built a reproducible investment-intelligence platform from the official NIFTY-50 dataset "
         "(Jan 2000 – Apr 2021, 49 companies, 235,192 daily rows) and nothing else. The pipeline repairs the "

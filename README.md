@@ -2,6 +2,8 @@
 
 **An honest, fully reproducible investment decision-support platform built from 21 years of NIFTY-50 market data — and nothing else.**
 
+*Team **The_Bull_Monster** — Aditya Raj · Nitin | Cult Open Projects 2026*
+
 ![CI](https://github.com/TheDeveloperAAA/nifty-intelligence/actions/workflows/ci.yml/badge.svg)
 ![Python 3.11](https://img.shields.io/badge/python-3.11-blue)
 ![License MIT](https://img.shields.io/badge/license-MIT-green)
