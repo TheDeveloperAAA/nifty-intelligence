@@ -4,10 +4,13 @@
 
 *Team **The_Bull_Monster** — Aditya Raj | Cult Open Projects 2026*
 
+[![Live demo](https://img.shields.io/badge/live%20demo-nifty--intelligence--system.streamlit.app-FF4B4B?logo=streamlit&logoColor=white)](https://nifty-intelligence-system.streamlit.app/)
 ![CI](https://github.com/TheDeveloperAAA/nifty-intelligence/actions/workflows/ci.yml/badge.svg)
 ![Python 3.11](https://img.shields.io/badge/python-3.11-blue)
 ![License MIT](https://img.shields.io/badge/license-MIT-green)
 ![Data CC0](https://img.shields.io/badge/data-Kaggle%20NIFTY--50%20(CC0)-orange)
+
+**▶ Try it now (no install): [nifty-intelligence-system.streamlit.app](https://nifty-intelligence-system.streamlit.app/)**
 
 Built for **Cult Open Projects 2026 — "Data-Driven Investment Intelligence Using NIFTY-50 Market Data"**. Every number in the dashboard and the [12-page technical report](reports/technical_report.pdf) is produced by one command from the raw CSVs. Nothing is hand-typed; honesty is enforced by construction.
 
@@ -29,7 +32,11 @@ Built for **Cult Open Projects 2026 — "Data-Driven Investment Intelligence Usi
 
 The published dataset is **not adjusted for corporate actions**: 92 days carry artificial "returns" of −50% to −95% (ITC −92.7% on 2005-09-21 was a bonus+split, not a crash). Any model or risk metric built naively on it is corrupted. Since external data is forbidden by the competition rules, the pipeline **detects 94 events from price ratios alone** (ratio-snapping to plausible split/bonus fractions + an open-price anchor + 4-condition test for small bonuses) and back-adjusts prices and volumes — while deliberately leaving the three *genuine* >+30% crisis rallies untouched. A hard gate fails the build if any artificial cliff survives.
 
-## Quickstart (dashboard in ~2 minutes)
+## Quickstart
+
+**Fastest:** open the hosted dashboard — [nifty-intelligence-system.streamlit.app](https://nifty-intelligence-system.streamlit.app/) (Streamlit Community Cloud, deployed from this repo's `main`).
+
+**Run locally (~2 minutes):**
 
 ```bash
 git clone https://github.com/TheDeveloperAAA/nifty-intelligence.git
